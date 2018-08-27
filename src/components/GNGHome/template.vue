@@ -1,141 +1,150 @@
 <template>
-  <div class="content">
-    <div class="wrap">
-      <div id="main" role="main">
-        <!-- <ul id="tiles"> -->
-        <!-- These are our grid blocks -->
-        <!-- <li onclick="location.href='single-page.html';">
-            <img src="images/img1.jpg" width="200" height="200">
-            <div class="post-info">
-              <div class="post-basic-info">
-                <h3>
-                  <a href="#">Animation films</a>
-                </h3>
-                <span>
-                  <a href="#">
-                    <label> </label>Movies</a>
-                </span>
-                <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-              </div>
-              <div class="post-info-rate-share">
-                <div class="rateit">
-                  <span> </span>
-                </div>
-                <div class="post-share">
-                  <span> </span>
-                </div>
-                <div class="clear"> </div>
-              </div>
-            </div>
-          </li>
-          <li onclick="location.href='single-page.html';">
-            <img src="images/img2.jpg" width="200" height="299">
-            <div class="post-info">
-              <div class="post-basic-info">
-                <h3>
-                  <a href="#">Animation films</a>
-                </h3>
-                <span>
-                  <a href="#">
-                    <label> </label>Movies</a>
-                </span>
-                <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-              </div>
-              <div class="post-info-rate-share">
-                <div class="rateit">
-                  <span> </span>
-                </div>
-                <div class="post-share">
-                  <span> </span>
-                </div>
-                <div class="clear"> </div>
-              </div>
-            </div>
-          </li>
-          <li onclick="location.href='single-page.html';">
-            <img src="images/img3.jpg" width="200" height="214">
-            <div class="post-info">
-              <div class="post-basic-info">
-                <h3>
-                  <a href="#">Animation films</a>
-                </h3>
-                <span>
-                  <a href="#">
-                    <label> </label>Movies</a>
-                </span>
-                <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-              </div>
-              <div class="post-info-rate-share">
-                <div class="rateit">
-                  <span> </span>
-                </div>
-                <div class="post-share">
-                  <span> </span>
-                </div>
-                <div class="clear"> </div>
-              </div>
-            </div>
-          </li>
-          <li onclick="location.href='single-page.html';">
-            <img src="images/img4.jpg" width="200" height="333">
-            <div class="post-info">
-              <div class="post-basic-info">
-                <h3>
-                  <a href="#">Animation films</a>
-                </h3>
-                <span>
-                  <a href="#">
-                    <label> </label>Movies</a>
-                </span>
-                <p>Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
-              </div>
-              <div class="post-info-rate-share">
-                <div class="rateit">
-                  <span> </span>
-                </div>
-                <div class="post-share">
-                  <span> </span>
-                </div>
-                <div class="clear"> </div>
-              </div>
-            </div>
-          </li> -->
-        <!-- </ul> -->
-        <vue-waterfall-easy :imgsArr="imgsArr">
-          <div class="img-info" slot-scope="props">
-            <p class="some-info">第{{props.index+1}}张图片</p>
-            <p class="some-info">{{props.value.info}}</p>
-          </div>
-        </vue-waterfall-easy>
-      </div>
+    <div class="fox" id="fox" style="width:90%;margin-left:auto;margin-right:auto;">
+        <div class="imgBox" v-for="(img,key) in imgsArr" :key="key">
+            <img :src="img.src" />
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
-import vueWaterfallEasy from 'vue-waterfall-easy'
+import vueWaterfallEasy from "vue-waterfall-easy";
 export default {
     name: "GNGHome",
     data() {
         return {
             imgsArr: [
                 {
-                    src: "./static/img1.jpg",
+                    src: require("@/assets/gallery/01.jpg"),
                     href: "https://www.baidu.com",
                     info: "一些图片描述文字"
                 },
                 {
-                    src: "./static/img2.jpg",
+                    src: require("@/assets/gallery/02.jpg"),
                     href: "https://www.baidu.com",
                     info: "一些图片描述文字"
                 },
                 {
-                    src: "./static/img3.jpg",
+                    src: require("@/assets/gallery/03.jpg"),
                     href: "https://www.baidu.com",
                     info: "一些图片描述文字"
                 },
                 {
-                    src: "./static/img4.jpg",
+                    src: require("@/assets/gallery/04.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/05.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/06.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/07.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/08.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/09.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/10.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/11.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/12.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/13.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/14.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/15.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/16.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/17.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/18.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/19.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/20.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/01.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/13.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/09.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/26.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/24.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/22.jpg"),
+                    href: "https://www.baidu.com",
+                    info: "一些图片描述文字"
+                },
+                {
+                    src: require("@/assets/gallery/17.jpg"),
                     href: "https://www.baidu.com",
                     info: "一些图片描述文字"
                 }
@@ -149,5 +158,32 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+.fox {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 9em;
+}
+.fox:after {
+    content: "";
+    flex-grow: 99999;
+}
+.imgBox {
+    flex-grow: 1;
+    margin-right: 4px;
+}
+.imgBox img {
+    width: auto;
+    height: 245px;
+    object-fit: cover;
+    min-width: 100%;
+}
+
+.imgBox img:hover {
+    opacity: 0.82;
+}
 </style>
