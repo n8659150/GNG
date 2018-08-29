@@ -1,158 +1,40 @@
 <template>
     <div class="fox" id="fox" style="width:90%;margin-left:auto;margin-right:auto;">
         <div class="imgBox" v-for="(img,key) in imgsArr" :key="key">
-            <img :src="img.src" />
+            <img v-lazy="img.src" @click="openImg(img.src)" />
         </div>
     </div>
 </template>
 
 <script>
-import vueWaterfallEasy from "vue-waterfall-easy";
+import getImgByQID from "@/helpers/dataFetch";
+
 export default {
     name: "GNGHome",
     data() {
         return {
-            imgsArr: [
-                {
-                    src: require("@/assets/gallery/01.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/02.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/03.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/04.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/05.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/06.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/07.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/08.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/09.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/10.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/11.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/12.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/13.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/14.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/15.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/16.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/17.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/18.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/19.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/20.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/01.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/13.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/09.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/26.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/24.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/22.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                },
-                {
-                    src: require("@/assets/gallery/17.jpg"),
-                    href: "https://www.baidu.com",
-                    info: "一些图片描述文字"
-                }
-            ]
+            imgsArr: []
         };
     },
-    components: {
-        vueWaterfallEasy
+    components: {},
+    methods: {
+        async fetchImg(qid, limit, offset) {
+            try {
+                let result = await getImgByQID('sisterImg',qid, limit, offset);
+                let imgArray = result['data']['imgSrc'];
+               for (let img of imgArray){
+                   this.imgsArr.push({'src':img});
+               }
+            } catch (e) {
+                console.log(e);
+            }
+        },
+        openImg(src) {
+            window.open(src);
+        }
+    },
+    mounted(){
+        this.fetchImg('28997505',100,0);
     }
 };
 </script>
