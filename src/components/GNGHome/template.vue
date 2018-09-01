@@ -1,8 +1,10 @@
 <template>
-    <div class="fox" id="fox" style="width:90%;margin-left:auto;margin-right:auto;">
-        <div class="imgBox" v-for="(img,key) in imgsArr" :key="key">
-            <img v-lazy="img.src" @click="openImg(img.src)" />
-        </div>
+    <div id="fox" class="fox" style="width:90%;margin-left:auto;margin-right:auto;">
+          <!-- <transition-group name="list" tag="div" class="fox"> -->
+            <div class="imgBox" v-for="(img,key) in imgsArr" :key="key">
+                <img v-lazy="img.src" @click="openImg(img.src)" />
+            </div>
+         <!-- </transition-group> -->
     </div>
 </template>
 
@@ -25,6 +27,7 @@ export default {
                for (let img of imgArray){
                    this.imgsArr.push({'src':img});
                }
+               console.log(this.imgsArr);
             } catch (e) {
                 console.log(e);
             }
@@ -34,7 +37,7 @@ export default {
         }
     },
     mounted(){
-        this.fetchImg('28997505',100,0);
+        this.fetchImg('28997505',9,0);
     }
 };
 </script>
@@ -55,17 +58,39 @@ export default {
     flex-grow: 99999;
 }
 .imgBox {
-    flex-grow: 1;
+    flex-grow: 3;
     margin-right: 4px;
 }
-.imgBox img {
-    width: auto;
-    height: 245px;
-    object-fit: cover;
-    min-width: 100%;
+@media screen and (max-width: 420px) {
+    .imgBox img {
+        width: auto;
+    }
 }
+@media screen and (min-width: 421px) and (max-width: 830px) {
+    .imgBox img {
+        width: 33vw;
+        height: 400px;
+        object-fit: cover;
+        min-width: 100%;
+    }   
+}
+
+@media screen and (min-width: 831px) {
+    .imgBox img {
+        width: 25vw;
+        height: 400px;
+        object-fit: cover;
+        min-width: 100%;    
+    }   
+}
+.imgBox img {
+    object-fit: cover;
+    min-width: 100%;    
+} 
 
 .imgBox img:hover {
     opacity: 0.82;
+    transform: scale(1.01);
 }
+
 </style>
