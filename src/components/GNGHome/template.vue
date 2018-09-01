@@ -56,15 +56,35 @@ export default {
     flex-grow: 99999;
 }
 .imgBox {
-    flex-grow: 1;
+    flex-grow: 3;
     margin-right: 4px;
 }
-.imgBox img {
-    width: 16.667vw;
-    height: 245px;
-    object-fit: cover;
-    min-width: 100%;
+@media screen and (max-width: 420px) {
+    .imgBox img {
+        width: auto;
+    }
 }
+@media screen and (min-width: 421px) and (max-width: 830px) {
+    .imgBox img {
+        width: 33vw;
+        height: 400px;
+        object-fit: cover;
+        min-width: 100%;
+    }   
+}
+
+@media screen and (min-width: 831px) {
+    .imgBox img {
+        width: 25vw;
+        height: 400px;
+        object-fit: cover;
+        min-width: 100%;    
+    }   
+}
+.imgBox img {
+    object-fit: cover;
+    min-width: 100%;    
+} 
 
 .imgBox img:hover {
     opacity: 0.82;
