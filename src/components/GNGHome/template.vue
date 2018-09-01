@@ -1,8 +1,10 @@
 <template>
-    <div class="fox" id="fox" style="width:90%;margin-left:auto;margin-right:auto;">
-        <div class="imgBox" v-for="(img,key) in imgsArr" :key="key">
-            <img v-lazy="img.src" @click="openImg(img.src)" />
-        </div>
+    <div id="fox" class="fox" style="width:90%;margin-left:auto;margin-right:auto;">
+          <!-- <transition-group name="list" tag="div" class="fox"> -->
+            <div class="imgBox" v-for="(img,key) in imgsArr" :key="key">
+                <img v-lazy="img.src" @click="openImg(img.src)" />
+            </div>
+         <!-- </transition-group> -->
     </div>
 </template>
 
@@ -88,5 +90,7 @@ export default {
 
 .imgBox img:hover {
     opacity: 0.82;
+    transform: scale(1.01);
 }
+
 </style>
