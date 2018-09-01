@@ -25,6 +25,7 @@ export default {
                for (let img of imgArray){
                    this.imgsArr.push({'src':img});
                }
+               console.log(this.imgsArr);
             } catch (e) {
                 console.log(e);
             }
@@ -34,7 +35,7 @@ export default {
         }
     },
     mounted(){
-        this.fetchImg('28997505',100,0);
+        this.fetchImg('28997505',9,0);
     }
 };
 </script>
@@ -59,7 +60,7 @@ export default {
     margin-right: 4px;
 }
 .imgBox img {
-    width: auto;
+    width: 16.667vw;
     height: 245px;
     object-fit: cover;
     min-width: 100%;
