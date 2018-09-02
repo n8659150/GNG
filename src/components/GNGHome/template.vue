@@ -51,7 +51,7 @@ export default {
 .fox {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 9em;
+    margin-top: 7.4em;
 }
 .fox:after {
     content: "";
