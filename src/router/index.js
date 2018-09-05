@@ -10,6 +10,11 @@ export default new Router({
       path: '/',
       name: 'GNGHome',
       component: GNGHome
+    },
+    {
+      path: '/:questionId',
+      name: 'GNGDetail',
+      component: GNGHome
     }
   ]
 })

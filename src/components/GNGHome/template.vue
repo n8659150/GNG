@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import getImgByQID from "@/helpers/dataFetch";
+import {getImgByQID} from "@/helpers/dataFetch";
 
 export default {
     name: "GNGHome",
@@ -37,7 +37,9 @@ export default {
         }
     },
     mounted(){
-        this.fetchImg('28997505',9,0);
+        console.log(this.$route.params.questionId);
+        this.$route.params.questionId === undefined?this.fetchImg('28997505',18,0):this.fetchImg(this.$route.params.questionId,18,0)
+        
     }
 };
 </script>

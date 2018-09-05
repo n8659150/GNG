@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <GNGHeader></GNGHeader>
-    <router-view/>
+    <router-view :key="key"/>
   </div>
 </template>
 
@@ -11,7 +11,12 @@ export default {
   name: 'App',
   components:{
     GNGHeader
-  }
+  },
+  computed: {
+    key() {
+        return this.$route.name !== undefined?this.$route.name + new Date(): this.$route + new Date()
+    }
+ }
 }
 </script>
 <style>
