@@ -64,14 +64,14 @@ body{
 	background:url(../images/nav-icon.png) no-repeat 0px 0px;
 }
 .top-searchbar {
-	/* float: left; */
+	display: flex;
+	flex-direction: row;
 	width: 68%;
-	position: relative;
-	margin-left: -22px;
 }
+
 .top-searchbar input[type="text"]{
 	margin-top: 0.55em;
-	width: 100%;
+	width: 91%;
 	padding: 0.58em 1em;
 	border: 1px solid #E7E7E7;
 	transition: border-color 0.3s all;
@@ -86,7 +86,6 @@ body{
 	-webkit-appearance: none;
 	font-family: 'Open Sans', sans-serif;
 	color:#777;
-	position:relative;
 }
 .top-searchbar input[type="text"]{
 	background:#F7F6F6;
@@ -95,16 +94,20 @@ body{
 	border:1px solid #DDDDDD;
 }
 .top-searchbar input[type="submit"]{
-	position: absolute;
 	background: url(../images/search-icon.png) no-repeat 0px 0px;
 	height: 26px;
 	width: 26px;
-	display: inline-block;
 	border: none;
-	top: 12px;
-	right: -22px;
-	outline:none;
 	cursor:pointer;
+	margin: 0.45em 0;
+	padding: 0.58em 1em;
+}
+
+.search-form{
+	flex:1;
+}
+.search-form input[type="text"]{
+	margin-right:-34px;
 }
 .box{
 	position:absolute;
@@ -991,10 +994,11 @@ span.mail a:hover{
 		padding: 0.6em 1.2em;
 	}
 	.top-searchbar {
-		width: 93%;
-		float: none;
-		margin: 0;
-		clear:both;
+		/* width: 93%; */
+		/* float: none; */
+		/* margin: 0; */
+		/* clear:both; */
+		flex: 1;
 	}
 	a.boxclose {
 		right: 1em;
@@ -1124,10 +1128,11 @@ span.mail a:hover{
 		padding: 0.6em 1.2em;
 	}
 	.top-searchbar {
-		width: 90%;
-		float: none;
-		margin: 0;
-		clear:both;
+		/* width: 90%; */
+		/* float: none; */
+		/* margin: 0; */
+		/* clear:both; */
+		flex: 1;
 	}
 	a.boxclose {
 		right: 1em;
