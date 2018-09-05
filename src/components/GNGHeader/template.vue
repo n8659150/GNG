@@ -5,8 +5,9 @@
         <img src="@/assets/logo.png" title="KJJ" />
       </div>
       <div class="top-searchbar">
-        <form>
-          <input type="text" placeholder="请输入知乎问题id进行搜索" /><input type="submit" value="" :style="{backgroundImage: 'url(' + searchIcon + ')'}" />
+        <form class="search-form">
+          <input type="text" placeholder="请输入知乎问题id进行搜索" />
+          <input type="submit" value="" :style="{backgroundImage: 'url(' + searchIcon + ')'}" />
         </form>
       </div>
       
