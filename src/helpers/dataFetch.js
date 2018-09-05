@@ -10,5 +10,9 @@ function getImgByQID(url,qid,limit=100,offset=0) {
     let fullUrl = `${url}?questionId=${qid}&limit=${limit}&offset=${offset}`;
     return axios.get(fullUrl)
 }
+function getTitleByQID(url,qid) {
+    let fullUrl = `${url}?questionId=${qid}`;
+    return axios.get(fullUrl)
+}
 
-export default getImgByQID
+export {getImgByQID,getTitleByQID}

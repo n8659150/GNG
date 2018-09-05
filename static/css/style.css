@@ -93,7 +93,7 @@ body{
 .top-searchbar input[type="text"]:hover{
 	border:1px solid #DDDDDD;
 }
-.top-searchbar input[type="submit"]{
+.top-searchbar input[type="button"]{
 	background: url(../images/search-icon.png) no-repeat 0px 0px;
 	height: 26px;
 	width: 26px;
